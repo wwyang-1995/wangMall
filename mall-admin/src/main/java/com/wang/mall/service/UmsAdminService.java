@@ -5,4 +5,6 @@ public interface UmsAdminService {
     String login(String userName, String password);
 
     void test22();
+
+    void test();
 }
