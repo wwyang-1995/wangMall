@@ -1,0 +1,11 @@
+com/wang/mall/service/UmsAdminService.class
+com/wang/mall/service/impl/UmsAdminServiceImpl.class
+com/wang/mall/service/UserAdminCacheService.class
+com/wang/mall/config/MyBatisConfig.class
+com/wang/mall/config/GlobalCorsConfig.class
+com/wang/mall/MallAdminApplication.class
+com/wang/mall/dao/UmsAdminRoleRelationDao.class
+com/wang/mall/controller/UmsAdminController.class
+com/wang/mall/service/impl/UserAdminCacheServiceImpl.class
+com/wang/mall/dto/UmsAdminLoginParam.class
+com/wang/mall/bo/AdminUserDetails.class

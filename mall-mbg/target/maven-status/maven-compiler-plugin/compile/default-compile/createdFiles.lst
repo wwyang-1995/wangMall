@@ -1,0 +1,8 @@
+com/wang/mall/model/UserAdminLoginLog.class
+com/wang/mall/model/UmsResource.class
+com/wang/mall/model/UserAdmin.class
+com/wang/mall/model/UserAdminExample$Criteria.class
+com/wang/mall/model/UserAdminExample$Criterion.class
+com/wang/mall/mapper/UserAdminMapper.class
+com/wang/mall/model/UserAdminExample$GeneratedCriteria.class
+com/wang/mall/model/UserAdminExample.class

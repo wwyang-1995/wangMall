@@ -1,0 +1,3 @@
+com/wang/mall/security/util/JwtTokenUtil.class
+com/wang/mall/security/config/SecurityConfig.class
+com/wang/mall/security/config/IgnoreUrlConfig.class

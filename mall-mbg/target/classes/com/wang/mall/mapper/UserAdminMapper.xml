@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wang.mall.mapper.UserAdminMapper">
+    <!--resultType可以把查询结果封装到pojo类型中，但必须pojo类的属性名和查询到的数据库表的字段名一致。如果sql查询到的字段与pojo的属性名不一致，则需要使用resultMap将字段名和属性名对应起来，进行手动配置封装，将结果映射到pojo中-->
+    <resultMap id="BaseResultMap" type="com.wang.mall.model.UserAdmin">
+        <id column="id" jdbcType="BIGINT" property="id"></id>
+        <result column="username" jdbcType="VARCHAR" property="userName" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="icon" jdbcType="VARCHAR" property="icon" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+        <result column="note" jdbcType="VARCHAR" property="note" />
+        <!--数据类型是DATE的数据只有年月日（yyyy-MM-dd）,而TIMESTAMP的年月日和时分秒都有（yyyy-MM-dd HH:mm:ss）-->
+        <result column="create_time" jdbcType="TIMESTAMP" property="createtime"></result>
+        <result column="login_time" jdbcType="TIMESTAMP" property="logintime" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+    </resultMap>
+
+    <!--    trim标签 trim标签体中是整个字符串拼串后的结果
+            prefix:前缀
+            prefixOverrides:前缀覆盖，去除整个字符串前面多余的字符
+            suffix:后缀
+            suffixOverrides:后缀覆盖，去除整个字符串后面多余的字符
+            -->
+
+    <!--    choose标签即分支选择，只会进入其中的一个分支-->
+
+    <!--    collection：指定要遍历的集合，list类型的参数会特殊处理封装在map中，map的key就叫list
+            item：将遍历出的元素赋值给指定的变量，#{变量名}就能取出当前变量的值
+            swparator：每个元素之间的分隔符
+            open：遍历出所有结果拼接一个开始字符
+            close：遍历出所有结果拼接一个结束字符
+            index：索引，遍历list的时候index就是索引，item就是当前值，遍历map时index表示的就是map的key，item就是map的值-->
+
+    <sql id="Example_Where_Clause">
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" separator="," open="(" close=")">
+                                        ${listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List">
+        id, username, password, icon, email, nick_name, note, create_time, login_time, status
+    </sql>
+
+    <!--    可以看到有个<if test="_parameter != null" >，如果只有一个参数，那么_parameter 就代表该参数，如果有多个参数，那么_parameter 可以get(0)得到第一个参数。-->
+    <select id="selectByExample" parameterType="com.wang.mall.model.UserAdminExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from
+        ums_admin
+        <if test="_parameter!=null">
+            <include refid="Example_Where_Clause"></include>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <select id="test1" parameterType="com.wang.mall.model.UserAdminExample" resultMap="BaseResultMap">
+        select * from ums_admin where username = 'admin';
+    </select>
+</mapper>

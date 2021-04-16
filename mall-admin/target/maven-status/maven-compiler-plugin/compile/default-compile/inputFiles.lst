@@ -1,0 +1,11 @@
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/bo/AdminUserDetails.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/dao/UmsAdminRoleRelationDao.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/service/impl/UserAdminCacheServiceImpl.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/service/impl/UmsAdminServiceImpl.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/config/GlobalCorsConfig.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/config/MyBatisConfig.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/dto/UmsAdminLoginParam.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/controller/UmsAdminController.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/MallAdminApplication.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/service/UmsAdminService.java
+/Users/wang/Desktop/wangMall/mall-admin/src/main/java/com/wang/mall/service/UserAdminCacheService.java
